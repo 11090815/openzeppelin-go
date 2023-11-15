@@ -58,7 +58,7 @@ func (us *userStore) StoreUser(ctx contractapi.TransactionContextInterface, u Us
 
 func (us *userStore) UpdateUser(ctx contractapi.TransactionContextInterface, u User) error {
 	if oldUser, err := us.GetUser(ctx, u.GetUserID()); err != nil || oldUser == nil {
-		return fmt.Errorf("cannot update user [%s], because this user may not exist ")
+		return fmt.Errorf("cannot update user [%s], because this user may not exist", u.GetUserID())
 	}
 
 	userBytes, err := u.Serialize()

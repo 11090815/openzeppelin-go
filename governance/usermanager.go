@@ -38,7 +38,7 @@ func NewUser(userID string) User {
 	return &user{
 		User: &protos.User{
 			Id:    userID,
-			Attrs: make(map[string]struct{}),
+			Attrs: make(map[string][]byte),
 		},
 	}
 }
@@ -64,7 +64,7 @@ func (u *user) DelegateAttributeAuthority(attr string) error {
 		return fmt.Errorf("user [%s] has been already delegated attribute [%s]", u.Id, attr)
 	}
 
-	u.Attrs[attr] = struct{}{}
+	u.Attrs[attr] = []byte{0x01}
 
 	return nil
 }
