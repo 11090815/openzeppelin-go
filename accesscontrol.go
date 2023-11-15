@@ -10,6 +10,7 @@ import (
 )
 
 type AccessControl struct {
+	contractapi.Contract
 	store governance.UserStore
 }
 
