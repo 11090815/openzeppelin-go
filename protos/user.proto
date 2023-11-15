@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option go_package = "github.com/11090815/openzeppelin-go/protos";
+
+package protos;
+
+message User {
+    string                  id      = 1;
+    map<string,string>   attrs   = 2;
+}
